@@ -1,0 +1,228 @@
+/* Reset and base layout */
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #fef4f4, #e0f7fa);
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* Image container box */
+.container {
+    width: 250px;
+    height: 250px;
+    border: none;
+    border-radius: 15px;
+    background: #fff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* The image inside container */
+.container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.container img:hover {
+    transform: scale(1.05);
+}
+
+/* 🎯 Message box holding button and paragraph */
+.message-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 40px auto;
+    text-align: center;
+}
+
+/* 🎉 ROUND Button styling */
+#img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; /* ⭕ Makes it circular */
+    border: none;
+    background: radial-gradient(circle, #ff758c, #ff7eb3);
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    display: none;
+    animation: pulse 2s infinite;
+    transition: all 0.3s ease;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 105, 135, 0.8);
+}
+
+/* 💬 Message paragraph */
+#para {
+    position: static;
+    margin-top: 20px;
+    padding: 20px;
+    text-align: center;
+    font-size: 18px;
+    background: linear-gradient(120deg, #ffe0e0, #e0f7fa);
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    color: #444;
+    max-width: 600px;
+    animation: fadeIn 1.5s ease-in;
+}
+
+/* 🎥 Modal popup styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(6px);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 12px;
+    box-shadow: 0 0 20px #fff;
+    border: 2px solid #fff;
+}
+
+.close {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* 🔲 Main container */
+#main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 95vh;
+    flex-direction: row;
+    gap: 10px;
+    animation: fadeIn 1s ease-in;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+/* 🎈 Heading */
+.head {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    animation: fadeInOut 4s ease forwards;
+}
+
+.head h1 {
+    font-size: 2.5rem;
+    background: linear-gradient(to right, #ff758c, #ff7eb3);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: textPop 3s ease;
+}
+
+/* 📱 Responsive Design */
+@media screen and (max-width: 600px) {
+    #main {
+        flex-direction: column;
+        padding: 20px;
+        height: auto;
+    }
+
+    .container {
+        width: 90%;
+        height: auto;
+    }
+
+    .container img {
+        width: 100%;
+        height: auto;
+        max-height: 300px;
+    }
+
+    #img {
+        width: 80px;
+        height: 80px;
+        font-size: 14px;
+    }
+
+    body {
+        font-size: 16px;
+    }
+
+    .modal-content {
+        max-width: 95%;
+        max-height: 90%;
+    }
+
+    .head h1 {
+        font-size: 2rem;
+    }
+}
+
+/* 🔁 Animations */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@keyframes textPop {
+    0% { transform: scale(0.8); opacity: 0; }
+    50% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(1); }
+}
