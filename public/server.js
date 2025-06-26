@@ -18,12 +18,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Route to serve index.html on GET "/"
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.sendFile(path.join(__dirname, 'public','index.html'));
 });
 
 // Route to serve wish.html on GET "/wish"
 app.get("/wish", (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'wish.html'));
+    res.sendFile(path.join(__dirname,'public', 'wish.html'));
 });
 
 // Password submission handler
@@ -33,7 +33,7 @@ app.post("/submit", (req, res) => {
     if (typeof inputValue !== "string") inputValue = "";
     inputValue = inputValue.trim();
 
-    const isValid = /^[0-9]{4}$/.test(inputValue) && inputValue === "2005";
+    const isValid = /^[0-9]{4}$/.test(inputValue) && inputValue === "4901";
 
     if (isValid) {
         // ✅ Redirect to /wish if password is correct
