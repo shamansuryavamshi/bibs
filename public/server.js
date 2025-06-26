@@ -14,16 +14,16 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Static files (CSS, JS, images)
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname)));
 
 // Route to serve index.html on GET "/"
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, 'public','index.html'));
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 // Route to serve wish.html on GET "/wish"
 app.get("/wish", (req, res) => {
-    res.sendFile(path.join(__dirname,'public', 'wish.html'));
+    res.sendFile(path.join(__dirname, 'wish.html'));
 });
 
 // Password submission handler
